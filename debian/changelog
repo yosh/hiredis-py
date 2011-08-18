@@ -1,0 +1,5 @@
+python-hiredis (0.1.0-1rdio1) lucid; urgency=low
+
+  * Initial packaging
+
+ -- Manish Singh <manish@rd.io>  Wed, 17 Aug 2011 21:51:32 -0700

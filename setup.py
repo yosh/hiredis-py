@@ -5,6 +5,7 @@ import sys, imp, os, glob
 
 # Make sure vendor/hiredis is checked out (for development)
 if __name__ == "__main__":
+  """
   # Initialize submodule when not present
   submodule_status = os.popen("git submodule status", "r").read().strip()
   if submodule_status[0] == '-':
@@ -12,6 +13,7 @@ if __name__ == "__main__":
     os.system("git submodule update --init")
   elif submodule_status[0] == '+':
     print "note: vendor/hiredis submodule revision doesn't match."
+  """
 
 def version():
   module = imp.load_source("hiredis.version", "hiredis/version.py")
@@ -30,9 +32,11 @@ class install_lib(_install_lib.install_lib):
         if self.distribution.has_ext_modules():
           self.run_command('build_ext')
 
+"""
 lib = ("hiredis", {
   "sources": ["vendor/hiredis/%s.c" % src for src in ("hiredis", "net", "sds")],
   "include_dirs": ["vendor/hiredis"]})
+"""
 
 ext = Extension("hiredis.hiredis",
   sources=glob.glob("src/*.c"),
@@ -49,7 +53,7 @@ setup(
   keywords=["Redis"],
   license="BSD",
   packages=["hiredis"],
-  libraries=[lib],
+  #libraries=[lib],
   ext_modules=[ext],
 
   # Override "install_lib" command

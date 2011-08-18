@@ -1,0 +1,14 @@
+Source: python-hiredis
+Section: devel
+Priority: extra
+Build-Depends: debhelper (>= 5), build-essential, python-dev, libhiredis-dev
+Maintainer: Manish Singh <manish@rd.io>
+Standards-Version: 3.7.2
+XS-Python-Version: 2.6
+
+Package: python-hiredis
+Architecture: any
+Section: python
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Python binding for hiredis
+  This module wraps the hiredis protocol library for Python.
